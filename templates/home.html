@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Student Result Prediction</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+<style type="text/css">
+*{margin:0;padding:0;box-sizing:border-box}body,html{height:100%;font-family:Poppins-Regular,sans-serif}a{font-family:Poppins-Regular;font-size:14px;line-height:1.7;color:#666;margin:0;transition:all .4s;-webkit-transition:all .4s;-o-transition:all .4s;-moz-transition:all .4s}a:focus{outline:0!important}a:hover{text-decoration:none}h1,h2,h3,h4,h5,h6{margin:0}input{outline:0;border:none}input:focus::-webkit-input-placeholder{color:transparent}input:focus:-moz-placeholder{color:transparent}input:focus::-moz-placeholder{color:transparent}input:focus:-ms-input-placeholder{color:transparent}input::-webkit-input-placeholder{color:#adadad}input:-moz-placeholder{color:#adadad}input::-moz-placeholder{color:#adadad}input:-ms-input-placeholder{color:#adadad}button{outline:0!important;border:none;background:0 0}button:hover{cursor:pointer}.container{max-width:1200px}.container-contact100{width:100%;min-height:100vh;display:-webkit-box;display:-webkit-flex;display:-moz-box;display:-ms-flexbox;display:flex;flex-wrap:wrap;justify-content:center;align-items:center;padding:15px;background:#a64bf4;background:-webkit-linear-gradient(45deg,#00dbde,#fc00ff);background:-o-linear-gradient(45deg,#00dbde,#fc00ff);background:-moz-linear-gradient(45deg,#00dbde,#fc00ff);background:linear-gradient(45deg,#00dbde,#fc00ff)}.wrap-contact100{width:500px;background:#fff;border-radius:10px;overflow:hidden;padding:42px 55px 45px 55px}.contact100-form{width:100%}.contact100-form-title{display:block;font-family:Poppins-Bold;font-size:39px;color:#333;line-height:1.2;text-align:center;padding-bottom:10px}.wrap-input100{width:100%;position:relative;border-bottom:2px solid #d9d9d9;padding-bottom:10px;margin-bottom:15px}.input100{display:block;width:100%;background:0 0;font-family:Poppins-Medium;font-size:18px;color:#333;line-height:1.2;padding:0 5px}.focus-input100{position:absolute;display:block;width:100%;height:100%;top:0;left:0;pointer-events:none}.focus-input100::before{content:"";display:block;position:absolute;bottom:-2px;left:0;width:0;height:2px;-webkit-transition:all .4s;-o-transition:all .4s;-moz-transition:all .4s;transition:all .4s;background:#7f7f7f}input.input100{height:40px}.input100:focus+.focus-input100::before{width:100%}.has-val.input100+.focus-input100::before{width:100%}.container-contact100-form-btn{display:-webkit-box;display:-webkit-flex;display:-moz-box;display:-ms-flexbox;display:flex;flex-wrap:wrap;justify-content:center;padding-top:13px}.wrap-contact100-form-btn{width:100%;display:block;position:relative;z-index:1;border-radius:25px;overflow:hidden;margin:0 auto}.contact100-form-bgbtn{position:absolute;z-index:-1;width:300%;height:100%;background:#a64bf4;background:-webkit-linear-gradient(left,#00dbde,#fc00ff,#00dbde,#fc00ff);background:-o-linear-gradient(left,#00dbde,#fc00ff,#00dbde,#fc00ff);background:-moz-linear-gradient(left,#00dbde,#fc00ff,#00dbde,#fc00ff);background:linear-gradient(left,#00dbde,#fc00ff,#00dbde,#fc00ff);top:0;left:-100%;-webkit-transition:all .4s;-o-transition:all .4s;-moz-transition:all .4s;transition:all .4s}.contact100-form-btn{display:-webkit-box;display:-webkit-flex;display:-moz-box;display:-ms-flexbox;display:flex;justify-content:center;align-items:center;padding:0 20px;width:100%;height:50px;font-family:Poppins-Medium;font-size:16px;color:#fff;line-height:1.2}.wrap-contact100-form-btn:hover .contact100-form-bgbtn{left:0}.contact100-form-btn i{-webkit-transition:all .4s;-o-transition:all .4s;-moz-transition:all .4s;transition:all .4s}.contact100-form-btn:hover i{-webkit-transform:translateX(10px);-moz-transform:translateX(10px);-ms-transform:translateX(10px);-o-transform:translateX(10px);transform:translateX(10px)}@media (max-width:576px){.wrap-contact100{padding:72px 15px 65px 15px}}.wrap-contact100{width:800px;background:#fff;border-radius:10px;overflow:hidden;padding:42px 55px 45px 55px}.contact100-form-title{font-size:26px}
+</style>
+	<div class="container-contact100">
+		<div class="wrap-contact100">
+			<form class="contact100-form validate-form"  method="POST" action="/predict" >
+				<span class="contact100-form-title" style="font-size:32px">Student Result Prediction App<br>Research Capstone</span>
+				<span class="contact100-form-title" id="output" style="color: #ff0000;" >&nbsp;</span>
+
+				<div class="wrap-input100" style="border-bottom: 0px;" >
+					<span class="label-input100">Course_code *</span>
+						<select  class="input100" id="Code_module" name="code_module" style="padding: 10px 5px;margin-top: 15px;border: 2px solid #d9d9d9;" >
+							<option value="">Select Course_code</option>
+							<option value="0.02">AAA</option>
+							<option value="0.24">BBB</option>
+							<option value="0.14">CCC</option>
+							<option value="0.19">DDD</option>
+							<option value="0.09">EEE</option>
+							<option value="0.24">FFF</option>
+							<option value="0.08">GGG</option>
+						</select>
+					<span class="focus-input100"></span>
+				</div>
+				<div class="wrap-input100" style="border-bottom: 0px;" >
+					<span class="label-input100">Course_commencement session code *</span>
+						<select  class="input100" id="code_presentation" name="code_presentation" style="padding: 10px 5px;margin-top: 15px;border: 2px solid #d9d9d9;" >
+							<option value="">Select when the course starts</option>
+							<option value="0.14">2013B(2013-February)</option>
+							<option value="0.27">2013J(2013-October)</option>
+							<option value="0.24">2014B(2014-February)</option>
+							<option value="0.35">2014J(2014-October)</option>
+
+						</select>
+					<span class="focus-input100"></span>
+				</div>
+
+				<div class="wrap-input100 " >
+					<span class="label-input100">Gender *</span>
+					<select  class="input100" id="gender" name="gender" style="padding: 10px 5px;margin-top: 15px;border: 2px solid #d9d9d9;" >
+							<option value="">Select Gender</option>
+							<option value="0">Female</option>
+							<option value="1">Male</option>
+						</select>
+					<span class="focus-input100"></span>
+				</div>
+				<div class="wrap-input100" style="border-bottom: 0px;" >
+					<span class="label-input100">Highest Education *</span>
+						<select  class="input100" id="highest_education" name="highest_education" style="padding: 10px 5px;margin-top: 15px;border: 2px solid #d9d9d9;" >
+							<option value="">Select Highest Education of student</option>
+							<option value="4">HE Qualification</option>
+							<option value="2">Lower Than A Level</option>
+							<option value="3">A Level or Equivalent</option>
+							<option value="5">Post Graduate Qualification</option>
+							<option value="1">No Formal quals</option>
+
+						</select>
+					<span class="focus-input100"></span>
+				</div>
+				<div class="wrap-input100" style="border-bottom: 0px;" >
+					<span class="label-input100">Imd Band Of Region Student Resides *</span>
+						<select class="input100"  id="imd_band" name="imd_band" style="padding: 10px 5px;margin-top: 15px;border: 2px solid #d9d9d9;" >
+							<option value="">Select Imd_band</option>
+							<option value="0">0</option>
+							<option value="1">(0-10)%</option>
+							<option value="2">(10-20)%</option>
+							<option value="3">(20-30)%</option>
+							<option value="4">(30-40)%</option>
+							<option value="5">(40-50)%</option>
+							<option value="6">(50-60)%</option>
+
+							<option value="7">(60-70)%</option>
+							<option value="8">(70-80)%</option>
+							<option value="9">(80-90)%</option>
+							<option value="10">(90-100)%</option>
+
+						</select>
+					<span class="focus-input100"></span>
+				</div>
+				<div class="wrap-input100" style="border-bottom: 0px;" >
+					<span class="label-input100">Age-band of student</span>
+						<select class="input100"  id="age_band" name="age_band" style="padding: 10px 5px;margin-top: 15px;border: 2px solid #d9d9d9;" >
+							<option value="">Select age_band</option>
+							<option value="0.7">(0-35)</option>
+							<option value="0.29">(35-55)</option>
+							<option value="0.01">(55<=)</option>
+
+						</select>
+					<span class="focus-input100"></span>
+				</div>
+				<div class="wrap-input100 " >
+					<span class="label-input100">Number of previous attempts *</span>
+					<input class="input100" type="text" id="num_of_prev_attempts" name="num_of_prev_attempts" placeholder="num_of_prev_attempts(whole no) ex:2">
+					<span class="focus-input100"></span>
+				</div>
+
+				<div class="wrap-input100 " >
+					<span class="label-input100">The course credit *</span>
+					<input class="input100" type="text" id="studied_credits" name="studied_credits" placeholder="studied_credits (ex: 80)">
+					<span class="focus-input100"></span>
+				</div>
+
+
+				<div class="wrap-input100 " >
+					<span class="label-input100">Disability *</span>
+					<select  class="input100" id="disability" name="disability" style="padding: 10px 5px;margin-top: 15px;border: 2px solid #d9d9d9;" >
+							<option value="">Select disability</option>
+							<option value="0">N</option>
+							<option value="1">Y</option>
+						</select>
+					<span class="focus-input100"></span>
+				</div>
+
+
+
+
+				<div class="wrap-input100 " >
+					<span class="label-input100">**Date-Registeration(No of days before or after course commencement)<br>Negative if registered before and positive if registered after the course commencement</span>
+					<input class="input100" type="text" id="date_registeration" name="date_registeration" placeholder="example: +40 or -50">
+					<span class="focus-input100"></span>
+				</div>
+
+				<div class="wrap-input100 " >
+					<span class="label-input100">Course length *</span>
+					<input class="input100" type="text" id="module_presentation_length" name="module_presentation_length" placeholder="Lenghth of course (max 270 days)">
+					<span class="focus-input100"></span>
+				</div>
+
+				<div class="wrap-input100 " >
+					<span class="label-input100">Weight of assessments *</span>
+					<input class="input100" type="text" id="weight" name="weight" placeholder="Total weight of all assignments (ex =100 or 120")>
+					<span class="focus-input100"></span>
+				</div>
+				<div class="wrap-input100 " >
+					<span class="label-input100">Score Of Student *</span>
+					<input class="input100" type="text" id="avg_score" name="avg_score" placeholder="Average Score Of Student(0-100)">
+					<span class="focus-input100"></span>
+				</div>
+
+				<div class="wrap-input100 " >
+					<span class="label-input100">Total no of clicks in the Virtual Learning Environment **</span>
+					<input class="input100" type="text" id="sum_click" name="sum_click" placeholder="Total Clicks (ex: 2200)" >
+
+					<span class="focus-input100"></span>
+				</div>
+
+
+
+
+
+
+
+				<div class="container-contact100-form-btn">
+					<div class="wrap-contact100-form-btn">
+						<div class="contact100-form-bgbtn"></div>
+						<button class="contact100-form-btn" id='submit' type="submit" value="Submit">predict</button>
+					</div>
+				</div>
+			</form>
+			<hr>
+	        <div class ="card text-center" style="width:21.5em;margin:0 auto:">
+						<div class="card-body">
+							<p class="card-text"><h1><font colour = "orange">{{prediction_text}}</font></h1></p>
+		</div>
+
+
+	</div>
+
+</body>
+</html>
